@@ -1,0 +1,6 @@
+Program contains:
+    
+    - 4 add statements
+    - 1 subtract statements
+    - 1 multiple statements
+    - 2 divide statements

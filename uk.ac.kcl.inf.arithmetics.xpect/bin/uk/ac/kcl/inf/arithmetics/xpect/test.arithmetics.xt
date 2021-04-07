@@ -1,0 +1,19 @@
+/*XPECT_SETUP uk.ac.kcl.inf.arithmetics.xpect.XPectTests END_SETUP */
+/*
+XPECT generated file text.arithmetics.xt.txt---
+Program contains:
+    
+    - 2 add statements
+    - 1 subtract statements
+    - 2 multiple statements
+    - 2 divide statements
+---
+ */
+add(1.1,2.2)
+add(3,4)
+divide(5,1.2)
+multiply(3,7.1)
+divide(10,9)
+subtract(3.2,1)
+multiply(4,9.2)
+ 

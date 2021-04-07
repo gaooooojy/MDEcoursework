@@ -2,6 +2,8 @@ grammar uk.ac.kcl.inf.arithmetic.Arithmetic with org.eclipse.xtext.common.Termin
 
 generate arithmetic "http://www.ac.uk/kcl/inf/arithmetic/Arithmetic"
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 ArithmeticsProgram:
 	states += Statement*
 ;
@@ -13,20 +15,44 @@ Statement:
 	DivisionStatement
 ;
 
+Expression:
+	AdditionStatement |
+	SubtractionStatement |
+	MultiplicationStatement |
+	DivisionStatement|
+	NumberExpression
+;
+
 AdditionStatement:
-	"add"
+	"add" "("addend1=Expression operator="," addend2=Expression")"
 ;
 
 SubtractionStatement:
-	"subtract"
+	"subtract" "("minuend=Expression "," subtrahend=Expression")"
 ;
 
 MultiplicationStatement:
-	"multiply"
+	"multiply" "("multiplier1=Expression "," multiplier2=Expression")"
 ;
 
 DivisionStatement:
-	"divide"
+	"divide" "("dividend=Expression "," divisor=Expression")"
+;
+
+NumberExpression:
+	IntLiteral | RealLiteral
+;
+
+IntLiteral:
+	num = INT
+;
+
+RealLiteral:
+	num = REAL
+;
+
+REAL returns ecore::EFloat hidden():
+	INT? "." INT
 ;
 
 

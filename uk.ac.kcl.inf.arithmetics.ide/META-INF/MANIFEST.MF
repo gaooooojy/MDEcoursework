@@ -8,5 +8,8 @@ Bundle-SymbolicName: uk.ac.kcl.inf.arithmetics.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: uk.ac.kcl.inf.arithmetics,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: uk.ac.kcl.inf.arithmetic.ide.contentassist.antlr.internal,
+ uk.ac.kcl.inf.arithmetic.ide.contentassist.antlr
