@@ -36,3 +36,8 @@ uk.ac.kcl.inf.jingyi.flowcharts.xtext.ui/
 uk.ac.kcl.inf.jingyi.flowcharts.xtext.ui.tests/
 uk.ac.kcl.inf.mazegame/
 .metadata/
+uk.ac.kcl.inf.chessgame/
+uk.ac.kcl.inf.chessgame.ide/
+uk.ac.kcl.inf.chessgame.tests/
+uk.ac.kcl.inf.chessgame.ui/
+uk.ac.kcl.inf.chessgame.ui.tests/

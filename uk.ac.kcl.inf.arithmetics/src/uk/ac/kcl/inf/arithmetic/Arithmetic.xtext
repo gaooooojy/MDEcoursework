@@ -1,0 +1,32 @@
+grammar uk.ac.kcl.inf.arithmetic.Arithmetic with org.eclipse.xtext.common.Terminals
+
+generate arithmetic "http://www.ac.uk/kcl/inf/arithmetic/Arithmetic"
+
+ArithmeticsProgram:
+	states += Statement*
+;
+
+Statement:
+	AdditionStatement |
+	SubtractionStatement |
+	MultiplicationStatement |
+	DivisionStatement
+;
+
+AdditionStatement:
+	"add"
+;
+
+SubtractionStatement:
+	"subtract"
+;
+
+MultiplicationStatement:
+	"multiply"
+;
+
+DivisionStatement:
+	"divide"
+;
+
+
