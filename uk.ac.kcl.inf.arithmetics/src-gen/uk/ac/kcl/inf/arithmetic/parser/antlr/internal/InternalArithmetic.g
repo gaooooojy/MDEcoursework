@@ -550,9 +550,9 @@ rulePowerStatement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0());
 				}
-				lv_basenumber_2_0=ruleNumberExpression
+				lv_basenumber_2_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPowerStatementRule());
@@ -561,7 +561,7 @@ rulePowerStatement returns [EObject current=null]
 						$current,
 						"basenumber",
 						lv_basenumber_2_0,
-						"uk.ac.kcl.inf.arithmetic.Arithmetic.NumberExpression");
+						"uk.ac.kcl.inf.arithmetic.Arithmetic.Expression");
 					afterParserOrEnumRuleCall();
 				}
 			)

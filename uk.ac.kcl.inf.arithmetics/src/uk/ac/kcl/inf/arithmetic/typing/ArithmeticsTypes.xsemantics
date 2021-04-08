@@ -1,0 +1,100 @@
+import uk.ac.kcl.inf.arithmetic.validation.AbstractArithmeticValidator
+import uk.ac.kcl.inf.arithmetic.arithmetic.Expression
+import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral
+import uk.ac.kcl.inf.arithmetic.arithmetic.RealLiteral
+import uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement
+import uk.ac.kcl.inf.arithmetic.arithmetic.SubtractionStatement
+import uk.ac.kcl.inf.arithmetic.arithmetic.MultiplicationStatement
+import uk.ac.kcl.inf.arithmetic.arithmetic.DivisionStatement
+import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
+
+//import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
+
+system uk.ac.kcl.inf.arithmetic.typing.ArithmeticsTypeSystem
+
+validatorExtends AbstractArithmeticValidator
+
+auxiliary{
+	typeExpression(Iterable<Expression> exps) : ArithmeticsType cached
+}
+
+judgments{
+	type |- Expression exp : output ArithmeticsType
+		cached
+		error "Cannot type " + stringRep(exp) + ",you should type a real or a integer."
+	
+//		subType |- ArithmeticsType left <: ArithmeticsType right
+//		error stringRep(left) + "is not a subtype of" + stringRep(right)
+}
+
+//auxiliary typeExpression(Iterable<Expression> exps) {
+//	if (exps.forall[exp |
+//		empty |- exp : var ArithmeticsType type
+//		type === ArithmeticsType.INT]){
+//			return ArithmeticsType.INT
+//		} else {
+//			return ArithmeticsType.REAL
+//		}
+//}
+
+axiom TIntLit
+	G |- IntLiteral exp : ArithmeticsType.INT
+	
+axiom TRealLit
+	G |- RealLiteral exp : ArithmeticsType.REAL
+
+//
+rule TAddition
+	G |- AdditionStatement exp : ArithmeticsType t
+from{
+	t = (#[exp.addend1] + #[exp.addend2]).typeExpression
+}
+//
+rule TSubtraction
+	G |- SubtractionStatement exp : ArithmeticsType t
+from{
+	t = (#[exp.minuend] + #[exp.subtrahend]).typeExpression
+}
+
+rule TMultiplication
+	G |- MultiplicationStatement exp : ArithmeticsType t
+from{
+	t = (#[exp.multiplier1] + #[exp.multiplier2]).typeExpression
+}
+
+rule TDivision
+	G |- DivisionStatement exp : ArithmeticsType t
+from{
+	t = (#[exp.dividend] + #[exp.divisor]).typeExpression
+}
+
+rule TPower
+	G |- PowerStatement exp : ArithmeticsType t
+from{
+	t = (#[exp.basenumber]).typeExpression
+}
+
+//rule TPower
+//	G |- PowerStatement exp : ArithmeticsType t
+//from{
+//	t = exp.times.typeExpression
+//}
+
+//rule subTyping
+//	G |- ArithmeticsType left <: ArithmeticsType right
+//from{
+//	right === ArithmeticsType.REAL or left === right
+//}
+
+checkrule DivisionStatement for
+	DivisionStatement stmt
+from{
+	empty |- stmt.divisor : var ArithmeticsType divisorType
+	divisorType = ArithmeticsType.INT
+}
+
+
+
+
+
+

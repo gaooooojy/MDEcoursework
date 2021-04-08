@@ -6,14 +6,14 @@ package uk.ac.kcl.inf.arithmetic.validation;
 import org.eclipse.xtext.validation.Check;
 import uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticPackage;
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral;
-import uk.ac.kcl.inf.arithmetic.validation.AbstractArithmeticValidator;
+import uk.ac.kcl.inf.arithmetic.typing.validation.ArithmeticsTypeSystemValidator;
 
 /**
  * This class contains custom validation rules.
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class ArithmeticValidator extends AbstractArithmeticValidator {
+public class ArithmeticValidator extends ArithmeticsTypeSystemValidator {
   public static final String INVALID_NUMBER = "uk.ac.kcl.inf.arithmetics.INVALID_NUMBER";
   
   @Check

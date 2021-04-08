@@ -1494,9 +1494,9 @@ rule__PowerStatement__BasenumberAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0()); }
-		ruleNumberExpression
-		{ after(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0()); }
+		{ before(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0()); }
+		ruleExpression
+		{ after(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0()); }
 	)
 ;
 finally {

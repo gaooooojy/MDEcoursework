@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticPackage;
-import uk.ac.kcl.inf.arithmetic.arithmetic.NumberExpression;
+import uk.ac.kcl.inf.arithmetic.arithmetic.Expression;
 import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement;
 
 /**
@@ -39,7 +39,7 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
    * @generated
    * @ordered
    */
-  protected NumberExpression basenumber;
+  protected Expression basenumber;
 
   /**
    * The default value of the '{@link #getTimes() <em>Times</em>}' attribute.
@@ -88,7 +88,7 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
    * @generated
    */
   @Override
-  public NumberExpression getBasenumber()
+  public Expression getBasenumber()
   {
     return basenumber;
   }
@@ -98,9 +98,9 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBasenumber(NumberExpression newBasenumber, NotificationChain msgs)
+  public NotificationChain basicSetBasenumber(Expression newBasenumber, NotificationChain msgs)
   {
-    NumberExpression oldBasenumber = basenumber;
+    Expression oldBasenumber = basenumber;
     basenumber = newBasenumber;
     if (eNotificationRequired())
     {
@@ -116,7 +116,7 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
    * @generated
    */
   @Override
-  public void setBasenumber(NumberExpression newBasenumber)
+  public void setBasenumber(Expression newBasenumber)
   {
     if (newBasenumber != basenumber)
     {
@@ -202,7 +202,7 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
     switch (featureID)
     {
       case ArithmeticPackage.POWER_STATEMENT__BASENUMBER:
-        setBasenumber((NumberExpression)newValue);
+        setBasenumber((Expression)newValue);
         return;
       case ArithmeticPackage.POWER_STATEMENT__TIMES:
         setTimes((Integer)newValue);
@@ -222,7 +222,7 @@ public class PowerStatementImpl extends StatementImpl implements PowerStatement
     switch (featureID)
     {
       case ArithmeticPackage.POWER_STATEMENT__BASENUMBER:
-        setBasenumber((NumberExpression)null);
+        setBasenumber((Expression)null);
         return;
       case ArithmeticPackage.POWER_STATEMENT__TIMES:
         setTimes(TIMES_EDEFAULT);

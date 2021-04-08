@@ -28,12 +28,12 @@ public interface PowerStatement extends Statement, Expression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Basenumber</em>' containment reference.
-   * @see #setBasenumber(NumberExpression)
+   * @see #setBasenumber(Expression)
    * @see uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticPackage#getPowerStatement_Basenumber()
    * @model containment="true"
    * @generated
    */
-  NumberExpression getBasenumber();
+  Expression getBasenumber();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement#getBasenumber <em>Basenumber</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface PowerStatement extends Statement, Expression
    * @see #getBasenumber()
    * @generated
    */
-  void setBasenumber(NumberExpression value);
+  void setBasenumber(Expression value);
 
   /**
    * Returns the value of the '<em><b>Times</b></em>' attribute.

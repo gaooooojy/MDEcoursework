@@ -176,7 +176,7 @@ public class ArithmeticSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PowerStatement returns PowerStatement
 	 *
 	 * Constraint:
-	 *     (basenumber=NumberExpression times=INT)
+	 *     (basenumber=Expression times=INT)
 	 */
 	protected void sequence_PowerStatement(ISerializationContext context, PowerStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -186,7 +186,7 @@ public class ArithmeticSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.POWER_STATEMENT__TIMES));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0(), semanticObject.getBasenumber());
+		feeder.accept(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0(), semanticObject.getBasenumber());
 		feeder.accept(grammarAccess.getPowerStatementAccess().getTimesINTTerminalRuleCall_4_0(), semanticObject.getTimes());
 		feeder.finish();
 	}

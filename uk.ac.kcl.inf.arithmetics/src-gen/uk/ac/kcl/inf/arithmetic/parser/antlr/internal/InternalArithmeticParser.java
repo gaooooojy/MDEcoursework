@@ -1316,7 +1316,7 @@ public class InternalArithmeticParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePowerStatement"
-    // InternalArithmetic.g:534:1: rulePowerStatement returns [EObject current=null] : (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleNumberExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' ) ;
+    // InternalArithmetic.g:534:1: rulePowerStatement returns [EObject current=null] : (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' ) ;
     public final EObject rulePowerStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1332,11 +1332,11 @@ public class InternalArithmeticParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArithmetic.g:540:2: ( (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleNumberExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' ) )
-            // InternalArithmetic.g:541:2: (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleNumberExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' )
+            // InternalArithmetic.g:540:2: ( (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' ) )
+            // InternalArithmetic.g:541:2: (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' )
             {
-            // InternalArithmetic.g:541:2: (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleNumberExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' )
-            // InternalArithmetic.g:542:3: otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleNumberExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')'
+            // InternalArithmetic.g:541:2: (otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')' )
+            // InternalArithmetic.g:542:3: otherlv_0= 'power' otherlv_1= '(' ( (lv_basenumber_2_0= ruleExpression ) ) otherlv_3= ',' ( (lv_times_4_0= RULE_INT ) ) otherlv_5= ')'
             {
             otherlv_0=(Token)match(input,18,FOLLOW_4); 
 
@@ -1346,17 +1346,17 @@ public class InternalArithmeticParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getPowerStatementAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalArithmetic.g:550:3: ( (lv_basenumber_2_0= ruleNumberExpression ) )
-            // InternalArithmetic.g:551:4: (lv_basenumber_2_0= ruleNumberExpression )
+            // InternalArithmetic.g:550:3: ( (lv_basenumber_2_0= ruleExpression ) )
+            // InternalArithmetic.g:551:4: (lv_basenumber_2_0= ruleExpression )
             {
-            // InternalArithmetic.g:551:4: (lv_basenumber_2_0= ruleNumberExpression )
-            // InternalArithmetic.g:552:5: lv_basenumber_2_0= ruleNumberExpression
+            // InternalArithmetic.g:551:4: (lv_basenumber_2_0= ruleExpression )
+            // InternalArithmetic.g:552:5: lv_basenumber_2_0= ruleExpression
             {
 
-            					newCompositeNode(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0());
             				
             pushFollow(FOLLOW_6);
-            lv_basenumber_2_0=ruleNumberExpression();
+            lv_basenumber_2_0=ruleExpression();
 
             state._fsp--;
 
@@ -1368,7 +1368,7 @@ public class InternalArithmeticParser extends AbstractInternalAntlrParser {
             						current,
             						"basenumber",
             						lv_basenumber_2_0,
-            						"uk.ac.kcl.inf.arithmetic.Arithmetic.NumberExpression");
+            						"uk.ac.kcl.inf.arithmetic.Arithmetic.Expression");
             					afterParserOrEnumRuleCall();
             				
 

@@ -4386,25 +4386,25 @@ public class InternalArithmeticParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PowerStatement__BasenumberAssignment_2"
-    // InternalArithmetic.g:1491:1: rule__PowerStatement__BasenumberAssignment_2 : ( ruleNumberExpression ) ;
+    // InternalArithmetic.g:1491:1: rule__PowerStatement__BasenumberAssignment_2 : ( ruleExpression ) ;
     public final void rule__PowerStatement__BasenumberAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArithmetic.g:1495:1: ( ( ruleNumberExpression ) )
-            // InternalArithmetic.g:1496:2: ( ruleNumberExpression )
+            // InternalArithmetic.g:1495:1: ( ( ruleExpression ) )
+            // InternalArithmetic.g:1496:2: ( ruleExpression )
             {
-            // InternalArithmetic.g:1496:2: ( ruleNumberExpression )
-            // InternalArithmetic.g:1497:3: ruleNumberExpression
+            // InternalArithmetic.g:1496:2: ( ruleExpression )
+            // InternalArithmetic.g:1497:3: ruleExpression
             {
-             before(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0()); 
+             before(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
-            ruleNumberExpression();
+            ruleExpression();
 
             state._fsp--;
 
-             after(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0()); 
+             after(grammarAccess.getPowerStatementAccess().getBasenumberExpressionParserRuleCall_2_0()); 
 
             }
 

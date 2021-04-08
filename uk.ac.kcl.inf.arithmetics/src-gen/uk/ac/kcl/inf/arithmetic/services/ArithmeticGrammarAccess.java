@@ -283,17 +283,17 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cPowerKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cBasenumberAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cBasenumberNumberExpressionParserRuleCall_2_0 = (RuleCall)cBasenumberAssignment_2.eContents().get(0);
+		private final RuleCall cBasenumberExpressionParserRuleCall_2_0 = (RuleCall)cBasenumberAssignment_2.eContents().get(0);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTimesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cTimesINTTerminalRuleCall_4_0 = (RuleCall)cTimesAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//PowerStatement:
-		//	"power" "(" basenumber=NumberExpression "," times=INT ")";
+		//	"power" "(" basenumber=Expression "," times=INT ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"power" "(" basenumber=NumberExpression "," times=INT ")"
+		//"power" "(" basenumber=Expression "," times=INT ")"
 		public Group getGroup() { return cGroup; }
 		
 		//"power"
@@ -302,11 +302,11 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//basenumber=NumberExpression
+		//basenumber=Expression
 		public Assignment getBasenumberAssignment_2() { return cBasenumberAssignment_2; }
 		
-		//NumberExpression
-		public RuleCall getBasenumberNumberExpressionParserRuleCall_2_0() { return cBasenumberNumberExpressionParserRuleCall_2_0; }
+		//Expression
+		public RuleCall getBasenumberExpressionParserRuleCall_2_0() { return cBasenumberExpressionParserRuleCall_2_0; }
 		
 		//","
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
@@ -529,7 +529,7 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//PowerStatement:
-	//	"power" "(" basenumber=NumberExpression "," times=INT ")";
+	//	"power" "(" basenumber=Expression "," times=INT ")";
 	public PowerStatementElements getPowerStatementAccess() {
 		return pPowerStatement;
 	}

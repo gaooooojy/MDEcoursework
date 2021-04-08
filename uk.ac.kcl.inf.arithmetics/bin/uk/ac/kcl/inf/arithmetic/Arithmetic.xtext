@@ -42,7 +42,7 @@ DivisionStatement:
 ;
 
 PowerStatement:
-	"power" "(" basenumber=NumberExpression "," times=INT ")"
+	"power" "(" basenumber=Expression "," times=INT ")"
 ;
 
 NumberExpression:

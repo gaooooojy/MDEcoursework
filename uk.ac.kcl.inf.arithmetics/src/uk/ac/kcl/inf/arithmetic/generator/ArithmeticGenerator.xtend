@@ -86,7 +86,7 @@ class ArithmeticGenerator extends AbstractGenerator {
 	
 	dispatch def String generateJavaStatement(PowerStatement stmt, Environment env)'''
 «««	«IF stmt.times==0 »System.out.println(1)«ENDIF»
-	«IF stmt.times==0 »System.out.println(1)«ELSE»System.out.println(«stmt.basenumber.generateJavaExpression»«FOR idx:(1..stmt.times-1)»*«stmt.basenumber.generateJavaExpression»«ENDFOR»);«ENDIF»'''
+	«IF stmt.times==0 »System.out.println(1)«ELSEIF stmt.times==1»System.out.println(«stmt.basenumber.generateJavaExpression»)«ELSE»System.out.println(«stmt.basenumber.generateJavaExpression»«FOR idx:(0..stmt.times-2)»*«stmt.basenumber.generateJavaExpression»«ENDFOR»);«ENDIF»'''
 	
 	dispatch def String generateJavaStatement(NumberExpression stmt, Environment env)''''''
 	
@@ -107,7 +107,7 @@ class ArithmeticGenerator extends AbstractGenerator {
 	dispatch def String generateJavaExpression(PowerStatement exp)'''
 «««	(«exp.basenumber.generateJavaExpression»«FOR idx:(0..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)
 «««	Math.pow(«exp.basenumber.generateJavaExpression»,«exp.times»)
-	«IF exp.times==0 »1«ELSE»(«exp.basenumber.generateJavaExpression»«FOR idx:(1..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)«ENDIF»'''
+	«IF exp.times==0 »1«ELSEIF exp.times==1»(«exp.basenumber.generateJavaExpression»)«ELSE»(«exp.basenumber.generateJavaExpression»«FOR idx:(0..exp.times-2)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)«ENDIF»'''
 	
 	dispatch def String generateJavaExpression(IntLiteral exp) '''«exp.num»'''
 	
