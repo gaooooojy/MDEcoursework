@@ -13,7 +13,6 @@
     <genClasses ecoreClass="Arithmetic.ecore#//Expression"/>
     <genClasses ecoreClass="Arithmetic.ecore#//AdditionStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Arithmetic.ecore#//AdditionStatement/addend1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Arithmetic.ecore#//AdditionStatement/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Arithmetic.ecore#//AdditionStatement/addend2"/>
     </genClasses>
     <genClasses ecoreClass="Arithmetic.ecore#//SubtractionStatement">
@@ -27,6 +26,10 @@
     <genClasses ecoreClass="Arithmetic.ecore#//DivisionStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Arithmetic.ecore#//DivisionStatement/dividend"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Arithmetic.ecore#//DivisionStatement/divisor"/>
+    </genClasses>
+    <genClasses ecoreClass="Arithmetic.ecore#//PowerStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Arithmetic.ecore#//PowerStatement/basenumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Arithmetic.ecore#//PowerStatement/times"/>
     </genClasses>
     <genClasses ecoreClass="Arithmetic.ecore#//NumberExpression"/>
     <genClasses ecoreClass="Arithmetic.ecore#//IntLiteral">

@@ -14,7 +14,6 @@ package uk.ac.kcl.inf.arithmetic.arithmetic;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getAddend1 <em>Addend1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getOperator <em>Operator</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getAddend2 <em>Addend2</em>}</li>
  * </ul>
  *
@@ -45,28 +44,6 @@ public interface AdditionStatement extends Statement, Expression
    * @generated
    */
   void setAddend1(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operator</em>' attribute.
-   * @see #setOperator(String)
-   * @see uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticPackage#getAdditionStatement_Operator()
-   * @model
-   * @generated
-   */
-  String getOperator();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getOperator <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operator</em>' attribute.
-   * @see #getOperator()
-   * @generated
-   */
-  void setOperator(String value);
 
   /**
    * Returns the value of the '<em><b>Addend2</b></em>' containment reference.

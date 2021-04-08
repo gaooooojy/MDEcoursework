@@ -19,6 +19,7 @@ import uk.ac.kcl.inf.arithmetic.arithmetic.Expression;
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.MultiplicationStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.NumberExpression;
+import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.RealLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.Statement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.SubtractionStatement;
@@ -79,6 +80,13 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
    * @generated
    */
   private EClass divisionStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass powerStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -236,20 +244,9 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
    * @generated
    */
   @Override
-  public EAttribute getAdditionStatement_Operator()
-  {
-    return (EAttribute)additionStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getAdditionStatement_Addend2()
   {
-    return (EReference)additionStatementEClass.getEStructuralFeatures().get(2);
+    return (EReference)additionStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -357,6 +354,39 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
    * @generated
    */
   @Override
+  public EClass getPowerStatement()
+  {
+    return powerStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPowerStatement_Basenumber()
+  {
+    return (EReference)powerStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPowerStatement_Times()
+  {
+    return (EAttribute)powerStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getNumberExpression()
   {
     return numberExpressionEClass;
@@ -446,7 +476,6 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
 
     additionStatementEClass = createEClass(ADDITION_STATEMENT);
     createEReference(additionStatementEClass, ADDITION_STATEMENT__ADDEND1);
-    createEAttribute(additionStatementEClass, ADDITION_STATEMENT__OPERATOR);
     createEReference(additionStatementEClass, ADDITION_STATEMENT__ADDEND2);
 
     subtractionStatementEClass = createEClass(SUBTRACTION_STATEMENT);
@@ -460,6 +489,10 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
     divisionStatementEClass = createEClass(DIVISION_STATEMENT);
     createEReference(divisionStatementEClass, DIVISION_STATEMENT__DIVIDEND);
     createEReference(divisionStatementEClass, DIVISION_STATEMENT__DIVISOR);
+
+    powerStatementEClass = createEClass(POWER_STATEMENT);
+    createEReference(powerStatementEClass, POWER_STATEMENT__BASENUMBER);
+    createEAttribute(powerStatementEClass, POWER_STATEMENT__TIMES);
 
     numberExpressionEClass = createEClass(NUMBER_EXPRESSION);
 
@@ -507,6 +540,8 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
     multiplicationStatementEClass.getESuperTypes().add(this.getExpression());
     divisionStatementEClass.getESuperTypes().add(this.getStatement());
     divisionStatementEClass.getESuperTypes().add(this.getExpression());
+    powerStatementEClass.getESuperTypes().add(this.getStatement());
+    powerStatementEClass.getESuperTypes().add(this.getExpression());
     numberExpressionEClass.getESuperTypes().add(this.getExpression());
     intLiteralEClass.getESuperTypes().add(this.getNumberExpression());
     realLiteralEClass.getESuperTypes().add(this.getNumberExpression());
@@ -521,7 +556,6 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
 
     initEClass(additionStatementEClass, AdditionStatement.class, "AdditionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAdditionStatement_Addend1(), this.getExpression(), null, "addend1", null, 0, 1, AdditionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAdditionStatement_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, AdditionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdditionStatement_Addend2(), this.getExpression(), null, "addend2", null, 0, 1, AdditionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(subtractionStatementEClass, SubtractionStatement.class, "SubtractionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -535,6 +569,10 @@ public class ArithmeticPackageImpl extends EPackageImpl implements ArithmeticPac
     initEClass(divisionStatementEClass, DivisionStatement.class, "DivisionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDivisionStatement_Dividend(), this.getExpression(), null, "dividend", null, 0, 1, DivisionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDivisionStatement_Divisor(), this.getExpression(), null, "divisor", null, 0, 1, DivisionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(powerStatementEClass, PowerStatement.class, "PowerStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPowerStatement_Basenumber(), this.getNumberExpression(), null, "basenumber", null, 0, 1, PowerStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPowerStatement_Times(), ecorePackage.getEInt(), "times", null, 0, 1, PowerStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numberExpressionEClass, NumberExpression.class, "NumberExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

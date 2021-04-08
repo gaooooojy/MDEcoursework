@@ -111,6 +111,11 @@ public class ArithmeticAdapterFactory extends AdapterFactoryImpl
         return createDivisionStatementAdapter();
       }
       @Override
+      public Adapter casePowerStatement(PowerStatement object)
+      {
+        return createPowerStatementAdapter();
+      }
+      @Override
       public Adapter caseNumberExpression(NumberExpression object)
       {
         return createNumberExpressionAdapter();
@@ -248,6 +253,21 @@ public class ArithmeticAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDivisionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement <em>Power Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
+   * @generated
+   */
+  public Adapter createPowerStatementAdapter()
   {
     return null;
   }

@@ -87,6 +87,15 @@ public interface ArithmeticFactory extends EFactory
   DivisionStatement createDivisionStatement();
 
   /**
+   * Returns a new object of class '<em>Power Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Power Statement</em>'.
+   * @generated
+   */
+  PowerStatement createPowerStatement();
+
+  /**
    * Returns a new object of class '<em>Number Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

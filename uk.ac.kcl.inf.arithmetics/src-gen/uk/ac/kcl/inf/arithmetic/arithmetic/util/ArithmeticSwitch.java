@@ -130,6 +130,15 @@ public class ArithmeticSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ArithmeticPackage.POWER_STATEMENT:
+      {
+        PowerStatement powerStatement = (PowerStatement)theEObject;
+        T result = casePowerStatement(powerStatement);
+        if (result == null) result = caseStatement(powerStatement);
+        if (result == null) result = caseExpression(powerStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ArithmeticPackage.NUMBER_EXPRESSION:
       {
         NumberExpression numberExpression = (NumberExpression)theEObject;
@@ -268,6 +277,22 @@ public class ArithmeticSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDivisionStatement(DivisionStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Power Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Power Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePowerStatement(PowerStatement object)
   {
     return null;
   }

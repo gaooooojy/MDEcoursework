@@ -44,12 +44,13 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cSubtractionStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cMultiplicationStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDivisionStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPowerStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Statement:
-		//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement;
+		//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement
+		//AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//AdditionStatement
@@ -63,6 +64,9 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//DivisionStatement
 		public RuleCall getDivisionStatementParserRuleCall_3() { return cDivisionStatementParserRuleCall_3; }
+		
+		//PowerStatement
+		public RuleCall getPowerStatementParserRuleCall_4() { return cPowerStatementParserRuleCall_4; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.arithmetic.Arithmetic.Expression");
@@ -71,13 +75,16 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cSubtractionStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cMultiplicationStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDivisionStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNumberExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cPowerStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cNumberExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Expression:
-		//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | NumberExpression;
+		//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement |
+		//	NumberExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | NumberExpression
+		//AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement |
+		//NumberExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//AdditionStatement
@@ -92,8 +99,11 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//DivisionStatement
 		public RuleCall getDivisionStatementParserRuleCall_3() { return cDivisionStatementParserRuleCall_3; }
 		
+		//PowerStatement
+		public RuleCall getPowerStatementParserRuleCall_4() { return cPowerStatementParserRuleCall_4; }
+		
 		//NumberExpression
-		public RuleCall getNumberExpressionParserRuleCall_4() { return cNumberExpressionParserRuleCall_4; }
+		public RuleCall getNumberExpressionParserRuleCall_5() { return cNumberExpressionParserRuleCall_5; }
 	}
 	public class AdditionStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.arithmetic.Arithmetic.AdditionStatement");
@@ -102,17 +112,16 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cAddend1Assignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAddend1ExpressionParserRuleCall_2_0 = (RuleCall)cAddend1Assignment_2.eContents().get(0);
-		private final Assignment cOperatorAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cOperatorCommaKeyword_3_0 = (Keyword)cOperatorAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cAddend2Assignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cAddend2ExpressionParserRuleCall_4_0 = (RuleCall)cAddend2Assignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//AdditionStatement:
-		//	"add" "(" addend1=Expression operator="," addend2=Expression ")";
+		//	"add" "(" addend1=Expression "," addend2=Expression ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"add" "(" addend1=Expression operator="," addend2=Expression ")"
+		//"add" "(" addend1=Expression "," addend2=Expression ")"
 		public Group getGroup() { return cGroup; }
 		
 		//"add"
@@ -127,11 +136,8 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//Expression
 		public RuleCall getAddend1ExpressionParserRuleCall_2_0() { return cAddend1ExpressionParserRuleCall_2_0; }
 		
-		//operator=","
-		public Assignment getOperatorAssignment_3() { return cOperatorAssignment_3; }
-		
 		//","
-		public Keyword getOperatorCommaKeyword_3_0() { return cOperatorCommaKeyword_3_0; }
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
 		
 		//addend2=Expression
 		public Assignment getAddend2Assignment_4() { return cAddend2Assignment_4; }
@@ -271,6 +277,49 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//")"
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
+	public class PowerStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.arithmetic.Arithmetic.PowerStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPowerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cBasenumberAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBasenumberNumberExpressionParserRuleCall_2_0 = (RuleCall)cBasenumberAssignment_2.eContents().get(0);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTimesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTimesINTTerminalRuleCall_4_0 = (RuleCall)cTimesAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//PowerStatement:
+		//	"power" "(" basenumber=NumberExpression "," times=INT ")";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"power" "(" basenumber=NumberExpression "," times=INT ")"
+		public Group getGroup() { return cGroup; }
+		
+		//"power"
+		public Keyword getPowerKeyword_0() { return cPowerKeyword_0; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//basenumber=NumberExpression
+		public Assignment getBasenumberAssignment_2() { return cBasenumberAssignment_2; }
+		
+		//NumberExpression
+		public RuleCall getBasenumberNumberExpressionParserRuleCall_2_0() { return cBasenumberNumberExpressionParserRuleCall_2_0; }
+		
+		//","
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+		
+		//times=INT
+		public Assignment getTimesAssignment_4() { return cTimesAssignment_4; }
+		
+		//INT
+		public RuleCall getTimesINTTerminalRuleCall_4_0() { return cTimesINTTerminalRuleCall_4_0; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
 	public class NumberExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.inf.arithmetic.Arithmetic.NumberExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -352,6 +401,7 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final SubtractionStatementElements pSubtractionStatement;
 	private final MultiplicationStatementElements pMultiplicationStatement;
 	private final DivisionStatementElements pDivisionStatement;
+	private final PowerStatementElements pPowerStatement;
 	private final NumberExpressionElements pNumberExpression;
 	private final IntLiteralElements pIntLiteral;
 	private final RealLiteralElements pRealLiteral;
@@ -373,6 +423,7 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pSubtractionStatement = new SubtractionStatementElements();
 		this.pMultiplicationStatement = new MultiplicationStatementElements();
 		this.pDivisionStatement = new DivisionStatementElements();
+		this.pPowerStatement = new PowerStatementElements();
 		this.pNumberExpression = new NumberExpressionElements();
 		this.pIntLiteral = new IntLiteralElements();
 		this.pRealLiteral = new RealLiteralElements();
@@ -417,7 +468,7 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Statement:
-	//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement;
+	//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -427,7 +478,8 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Expression:
-	//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | NumberExpression;
+	//	AdditionStatement | SubtractionStatement | MultiplicationStatement | DivisionStatement | PowerStatement |
+	//	NumberExpression;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -437,7 +489,7 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//AdditionStatement:
-	//	"add" "(" addend1=Expression operator="," addend2=Expression ")";
+	//	"add" "(" addend1=Expression "," addend2=Expression ")";
 	public AdditionStatementElements getAdditionStatementAccess() {
 		return pAdditionStatement;
 	}
@@ -474,6 +526,16 @@ public class ArithmeticGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public ParserRule getDivisionStatementRule() {
 		return getDivisionStatementAccess().getRule();
+	}
+	
+	//PowerStatement:
+	//	"power" "(" basenumber=NumberExpression "," times=INT ")";
+	public PowerStatementElements getPowerStatementAccess() {
+		return pPowerStatement;
+	}
+	
+	public ParserRule getPowerStatementRule() {
+		return getPowerStatementAccess().getRule();
 	}
 	
 	//NumberExpression:

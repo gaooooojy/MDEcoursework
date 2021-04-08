@@ -38,10 +38,10 @@ public class ArithmeticParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubtractionStatementAccess().getGroup(), "rule__SubtractionStatement__Group__0");
 			builder.put(grammarAccess.getMultiplicationStatementAccess().getGroup(), "rule__MultiplicationStatement__Group__0");
 			builder.put(grammarAccess.getDivisionStatementAccess().getGroup(), "rule__DivisionStatement__Group__0");
+			builder.put(grammarAccess.getPowerStatementAccess().getGroup(), "rule__PowerStatement__Group__0");
 			builder.put(grammarAccess.getREALAccess().getGroup(), "rule__REAL__Group__0");
 			builder.put(grammarAccess.getArithmeticsProgramAccess().getStatesAssignment(), "rule__ArithmeticsProgram__StatesAssignment");
 			builder.put(grammarAccess.getAdditionStatementAccess().getAddend1Assignment_2(), "rule__AdditionStatement__Addend1Assignment_2");
-			builder.put(grammarAccess.getAdditionStatementAccess().getOperatorAssignment_3(), "rule__AdditionStatement__OperatorAssignment_3");
 			builder.put(grammarAccess.getAdditionStatementAccess().getAddend2Assignment_4(), "rule__AdditionStatement__Addend2Assignment_4");
 			builder.put(grammarAccess.getSubtractionStatementAccess().getMinuendAssignment_2(), "rule__SubtractionStatement__MinuendAssignment_2");
 			builder.put(grammarAccess.getSubtractionStatementAccess().getSubtrahendAssignment_4(), "rule__SubtractionStatement__SubtrahendAssignment_4");
@@ -49,6 +49,8 @@ public class ArithmeticParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicationStatementAccess().getMultiplier2Assignment_4(), "rule__MultiplicationStatement__Multiplier2Assignment_4");
 			builder.put(grammarAccess.getDivisionStatementAccess().getDividendAssignment_2(), "rule__DivisionStatement__DividendAssignment_2");
 			builder.put(grammarAccess.getDivisionStatementAccess().getDivisorAssignment_4(), "rule__DivisionStatement__DivisorAssignment_4");
+			builder.put(grammarAccess.getPowerStatementAccess().getBasenumberAssignment_2(), "rule__PowerStatement__BasenumberAssignment_2");
+			builder.put(grammarAccess.getPowerStatementAccess().getTimesAssignment_4(), "rule__PowerStatement__TimesAssignment_4");
 			builder.put(grammarAccess.getIntLiteralAccess().getNumAssignment(), "rule__IntLiteral__NumAssignment");
 			builder.put(grammarAccess.getRealLiteralAccess().getNumAssignment(), "rule__RealLiteral__NumAssignment");
 		}

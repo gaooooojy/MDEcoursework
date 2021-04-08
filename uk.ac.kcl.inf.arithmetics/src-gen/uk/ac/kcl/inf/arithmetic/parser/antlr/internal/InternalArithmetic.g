@@ -147,6 +147,15 @@ ruleStatement returns [EObject current=null]
 			$current = $this_DivisionStatement_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementAccess().getPowerStatementParserRuleCall_4());
+		}
+		this_PowerStatement_4=rulePowerStatement
+		{
+			$current = $this_PowerStatement_4.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -203,11 +212,20 @@ ruleExpression returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getExpressionAccess().getNumberExpressionParserRuleCall_4());
+			newCompositeNode(grammarAccess.getExpressionAccess().getPowerStatementParserRuleCall_4());
 		}
-		this_NumberExpression_4=ruleNumberExpression
+		this_PowerStatement_4=rulePowerStatement
 		{
-			$current = $this_NumberExpression_4.current;
+			$current = $this_PowerStatement_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpressionAccess().getNumberExpressionParserRuleCall_5());
+		}
+		this_NumberExpression_5=ruleNumberExpression
+		{
+			$current = $this_NumberExpression_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -256,20 +274,10 @@ ruleAdditionStatement returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				lv_operator_3_0=','
-				{
-					newLeafNode(lv_operator_3_0, grammarAccess.getAdditionStatementAccess().getOperatorCommaKeyword_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAdditionStatementRule());
-					}
-					setWithLastConsumed($current, "operator", lv_operator_3_0, ",");
-				}
-			)
-		)
+		otherlv_3=','
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAdditionStatementAccess().getCommaKeyword_3());
+		}
 		(
 			(
 				{
@@ -511,6 +519,78 @@ ruleDivisionStatement returns [EObject current=null]
 		otherlv_5=')'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getDivisionStatementAccess().getRightParenthesisKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRulePowerStatement
+entryRulePowerStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPowerStatementRule()); }
+	iv_rulePowerStatement=rulePowerStatement
+	{ $current=$iv_rulePowerStatement.current; }
+	EOF;
+
+// Rule PowerStatement
+rulePowerStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='power'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPowerStatementAccess().getPowerKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getPowerStatementAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0());
+				}
+				lv_basenumber_2_0=ruleNumberExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPowerStatementRule());
+					}
+					set(
+						$current,
+						"basenumber",
+						lv_basenumber_2_0,
+						"uk.ac.kcl.inf.arithmetic.Arithmetic.NumberExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3=','
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPowerStatementAccess().getCommaKeyword_3());
+		}
+		(
+			(
+				lv_times_4_0=RULE_INT
+				{
+					newLeafNode(lv_times_4_0, grammarAccess.getPowerStatementAccess().getTimesINTTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPowerStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"times",
+						lv_times_4_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getPowerStatementAccess().getRightParenthesisKeyword_5());
 		}
 	)
 ;

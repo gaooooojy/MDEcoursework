@@ -20,6 +20,7 @@ import uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticsProgram;
 import uk.ac.kcl.inf.arithmetic.arithmetic.DivisionStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.MultiplicationStatement;
+import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.RealLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.SubtractionStatement;
 import uk.ac.kcl.inf.arithmetic.services.ArithmeticGrammarAccess;
@@ -53,6 +54,9 @@ public class ArithmeticSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ArithmeticPackage.MULTIPLICATION_STATEMENT:
 				sequence_MultiplicationStatement(context, (MultiplicationStatement) semanticObject); 
 				return; 
+			case ArithmeticPackage.POWER_STATEMENT:
+				sequence_PowerStatement(context, (PowerStatement) semanticObject); 
+				return; 
 			case ArithmeticPackage.REAL_LITERAL:
 				sequence_RealLiteral(context, (RealLiteral) semanticObject); 
 				return; 
@@ -71,20 +75,17 @@ public class ArithmeticSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     AdditionStatement returns AdditionStatement
 	 *
 	 * Constraint:
-	 *     (addend1=Expression operator=',' addend2=Expression)
+	 *     (addend1=Expression addend2=Expression)
 	 */
 	protected void sequence_AdditionStatement(ISerializationContext context, AdditionStatement semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__ADDEND1) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__ADDEND1));
-			if (transientValues.isValueTransient(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__OPERATOR));
 			if (transientValues.isValueTransient(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__ADDEND2) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.ADDITION_STATEMENT__ADDEND2));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAdditionStatementAccess().getAddend1ExpressionParserRuleCall_2_0(), semanticObject.getAddend1());
-		feeder.accept(grammarAccess.getAdditionStatementAccess().getOperatorCommaKeyword_3_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getAdditionStatementAccess().getAddend2ExpressionParserRuleCall_4_0(), semanticObject.getAddend2());
 		feeder.finish();
 	}
@@ -164,6 +165,29 @@ public class ArithmeticSemanticSequencer extends AbstractDelegatingSemanticSeque
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplicationStatementAccess().getMultiplier1ExpressionParserRuleCall_2_0(), semanticObject.getMultiplier1());
 		feeder.accept(grammarAccess.getMultiplicationStatementAccess().getMultiplier2ExpressionParserRuleCall_4_0(), semanticObject.getMultiplier2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns PowerStatement
+	 *     Expression returns PowerStatement
+	 *     PowerStatement returns PowerStatement
+	 *
+	 * Constraint:
+	 *     (basenumber=NumberExpression times=INT)
+	 */
+	protected void sequence_PowerStatement(ISerializationContext context, PowerStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArithmeticPackage.Literals.POWER_STATEMENT__BASENUMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.POWER_STATEMENT__BASENUMBER));
+			if (transientValues.isValueTransient(semanticObject, ArithmeticPackage.Literals.POWER_STATEMENT__TIMES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArithmeticPackage.Literals.POWER_STATEMENT__TIMES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPowerStatementAccess().getBasenumberNumberExpressionParserRuleCall_2_0(), semanticObject.getBasenumber());
+		feeder.accept(grammarAccess.getPowerStatementAccess().getTimesINTTerminalRuleCall_4_0(), semanticObject.getTimes());
 		feeder.finish();
 	}
 	

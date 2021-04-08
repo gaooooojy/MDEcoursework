@@ -12,7 +12,8 @@ Statement:
 	AdditionStatement |
 	SubtractionStatement |
 	MultiplicationStatement |
-	DivisionStatement
+	DivisionStatement |
+	PowerStatement
 ;
 
 Expression:
@@ -20,11 +21,12 @@ Expression:
 	SubtractionStatement |
 	MultiplicationStatement |
 	DivisionStatement|
+	PowerStatement |
 	NumberExpression
 ;
 
 AdditionStatement:
-	"add" "("addend1=Expression operator="," addend2=Expression")"
+	"add" "("addend1=Expression "," addend2=Expression")"
 ;
 
 SubtractionStatement:
@@ -37,6 +39,10 @@ MultiplicationStatement:
 
 DivisionStatement:
 	"divide" "("dividend=Expression "," divisor=Expression")"
+;
+
+PowerStatement:
+	"power" "(" basenumber=NumberExpression "," times=INT ")"
 ;
 
 NumberExpression:

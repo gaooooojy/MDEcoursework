@@ -72,6 +72,7 @@ public class ArithmeticFactoryImpl extends EFactoryImpl implements ArithmeticFac
       case ArithmeticPackage.SUBTRACTION_STATEMENT: return createSubtractionStatement();
       case ArithmeticPackage.MULTIPLICATION_STATEMENT: return createMultiplicationStatement();
       case ArithmeticPackage.DIVISION_STATEMENT: return createDivisionStatement();
+      case ArithmeticPackage.POWER_STATEMENT: return createPowerStatement();
       case ArithmeticPackage.NUMBER_EXPRESSION: return createNumberExpression();
       case ArithmeticPackage.INT_LITERAL: return createIntLiteral();
       case ArithmeticPackage.REAL_LITERAL: return createRealLiteral();
@@ -162,6 +163,18 @@ public class ArithmeticFactoryImpl extends EFactoryImpl implements ArithmeticFac
   {
     DivisionStatementImpl divisionStatement = new DivisionStatementImpl();
     return divisionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PowerStatement createPowerStatement()
+  {
+    PowerStatementImpl powerStatement = new PowerStatementImpl();
+    return powerStatement;
   }
 
   /**

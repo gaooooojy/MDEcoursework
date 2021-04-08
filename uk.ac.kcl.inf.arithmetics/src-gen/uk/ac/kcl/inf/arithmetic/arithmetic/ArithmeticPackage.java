@@ -143,22 +143,13 @@ public interface ArithmeticPackage extends EPackage
   int ADDITION_STATEMENT__ADDEND1 = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADDITION_STATEMENT__OPERATOR = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Addend2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITION_STATEMENT__ADDEND2 = STATEMENT_FEATURE_COUNT + 2;
+  int ADDITION_STATEMENT__ADDEND2 = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Addition Statement</em>' class.
@@ -167,7 +158,7 @@ public interface ArithmeticPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int ADDITION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.SubtractionStatementImpl <em>Subtraction Statement</em>}' class.
@@ -281,6 +272,43 @@ public interface ArithmeticPackage extends EPackage
   int DIVISION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.PowerStatementImpl <em>Power Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.PowerStatementImpl
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.ArithmeticPackageImpl#getPowerStatement()
+   * @generated
+   */
+  int POWER_STATEMENT = 7;
+
+  /**
+   * The feature id for the '<em><b>Basenumber</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER_STATEMENT__BASENUMBER = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Times</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER_STATEMENT__TIMES = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Power Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.NumberExpressionImpl <em>Number Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,7 +316,7 @@ public interface ArithmeticPackage extends EPackage
    * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.ArithmeticPackageImpl#getNumberExpression()
    * @generated
    */
-  int NUMBER_EXPRESSION = 7;
+  int NUMBER_EXPRESSION = 8;
 
   /**
    * The number of structural features of the '<em>Number Expression</em>' class.
@@ -307,7 +335,7 @@ public interface ArithmeticPackage extends EPackage
    * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.ArithmeticPackageImpl#getIntLiteral()
    * @generated
    */
-  int INT_LITERAL = 8;
+  int INT_LITERAL = 9;
 
   /**
    * The feature id for the '<em><b>Num</b></em>' attribute.
@@ -335,7 +363,7 @@ public interface ArithmeticPackage extends EPackage
    * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.ArithmeticPackageImpl#getRealLiteral()
    * @generated
    */
-  int REAL_LITERAL = 9;
+  int REAL_LITERAL = 10;
 
   /**
    * The feature id for the '<em><b>Num</b></em>' attribute.
@@ -417,17 +445,6 @@ public interface ArithmeticPackage extends EPackage
    * @generated
    */
   EReference getAdditionStatement_Addend1();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getOperator()
-   * @see #getAdditionStatement()
-   * @generated
-   */
-  EAttribute getAdditionStatement_Operator();
 
   /**
    * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.arithmetic.arithmetic.AdditionStatement#getAddend2 <em>Addend2</em>}'.
@@ -535,6 +552,38 @@ public interface ArithmeticPackage extends EPackage
    * @generated
    */
   EReference getDivisionStatement_Divisor();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement <em>Power Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Power Statement</em>'.
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
+   * @generated
+   */
+  EClass getPowerStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement#getBasenumber <em>Basenumber</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Basenumber</em>'.
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement#getBasenumber()
+   * @see #getPowerStatement()
+   * @generated
+   */
+  EReference getPowerStatement_Basenumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement#getTimes <em>Times</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Times</em>'.
+   * @see uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement#getTimes()
+   * @see #getPowerStatement()
+   * @generated
+   */
+  EAttribute getPowerStatement_Times();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.inf.arithmetic.arithmetic.NumberExpression <em>Number Expression</em>}'.
@@ -668,14 +717,6 @@ public interface ArithmeticPackage extends EPackage
     EReference ADDITION_STATEMENT__ADDEND1 = eINSTANCE.getAdditionStatement_Addend1();
 
     /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ADDITION_STATEMENT__OPERATOR = eINSTANCE.getAdditionStatement_Operator();
-
-    /**
      * The meta object literal for the '<em><b>Addend2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -760,6 +801,32 @@ public interface ArithmeticPackage extends EPackage
      * @generated
      */
     EReference DIVISION_STATEMENT__DIVISOR = eINSTANCE.getDivisionStatement_Divisor();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.PowerStatementImpl <em>Power Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.PowerStatementImpl
+     * @see uk.ac.kcl.inf.arithmetic.arithmetic.impl.ArithmeticPackageImpl#getPowerStatement()
+     * @generated
+     */
+    EClass POWER_STATEMENT = eINSTANCE.getPowerStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Basenumber</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POWER_STATEMENT__BASENUMBER = eINSTANCE.getPowerStatement_Basenumber();
+
+    /**
+     * The meta object literal for the '<em><b>Times</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POWER_STATEMENT__TIMES = eINSTANCE.getPowerStatement_Times();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.NumberExpressionImpl <em>Number Expression</em>}' class.

@@ -1,1 +1,4 @@
 add(1,2)
+power(2,3)
+power(1.1,2)
+subtract(power(2,2),3)

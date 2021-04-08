@@ -16,6 +16,7 @@ import uk.ac.kcl.inf.arithmetic.arithmetic.Statement
 import uk.ac.kcl.inf.arithmetic.arithmetic.NumberExpression
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral
 import uk.ac.kcl.inf.arithmetic.arithmetic.RealLiteral
+import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
 
 /**
  * Generates code from your model files on save.
@@ -70,29 +71,42 @@ class ArithmeticGenerator extends AbstractGenerator {
 	}
 	
 	dispatch def String generateJavaStatement(Statement stmt, Environment env)''''''
+	
 	dispatch def String generateJavaStatement(AdditionStatement stmt, Environment env)'''
-	System.out.println(«stmt.addend1.generateJavaExpression»+«stmt.addend2.generateJavaExpression»);
-	'''
+	System.out.println(«stmt.addend1.generateJavaExpression»+«stmt.addend2.generateJavaExpression»);'''
+	
 	dispatch def String generateJavaStatement(SubtractionStatement stmt, Environment env)'''
-	System.out.println(«stmt.minuend.generateJavaExpression»-«stmt.subtrahend.generateJavaExpression»);
-	'''
+	System.out.println(«stmt.minuend.generateJavaExpression»-«stmt.subtrahend.generateJavaExpression»);'''
+	
 	dispatch def String generateJavaStatement(MultiplicationStatement stmt, Environment env)'''
-	System.out.println(«stmt.multiplier1.generateJavaExpression»*«stmt.multiplier2.generateJavaExpression»);
-	'''
+	System.out.println(«stmt.multiplier1.generateJavaExpression»*«stmt.multiplier2.generateJavaExpression»);'''
+	
 	dispatch def String generateJavaStatement(DivisionStatement stmt, Environment env)'''
-	System.out.println(«stmt.dividend.generateJavaExpression»/«stmt.divisor.generateJavaExpression»);
-	'''
+	System.out.println(«stmt.dividend.generateJavaExpression»/«stmt.divisor.generateJavaExpression»);'''
+	
+	dispatch def String generateJavaStatement(PowerStatement stmt, Environment env)'''
+	System.out.println(«stmt.basenumber.generateJavaExpression»«FOR idx:(1..stmt.times-1)»*«stmt.basenumber.generateJavaExpression»«ENDFOR»);'''
+	
 	dispatch def String generateJavaStatement(NumberExpression stmt, Environment env)''''''
 	
 	dispatch def String generateJavaExpression(NumberExpression exp) ''''''
+	
 	dispatch def String generateJavaExpression(AdditionStatement exp) '''
 	(«exp.addend1.generateJavaExpression»+«exp.addend2.generateJavaExpression»)'''
+	
 	dispatch def String generateJavaExpression(SubtractionStatement exp) '''
 	(«exp.minuend.generateJavaExpression»-«exp.subtrahend.generateJavaExpression»)'''
+	
 	dispatch def String generateJavaExpression(MultiplicationStatement exp) '''
 	(«exp.multiplier1.generateJavaExpression»*«exp.multiplier2.generateJavaExpression»)'''
+	
 	dispatch def String generateJavaExpression(DivisionStatement exp) '''
 	(«exp.dividend.generateJavaExpression»/«exp.divisor.generateJavaExpression»)'''
+	
+	dispatch def String generateJavaExpression(PowerStatement exp)'''
+	(«exp.basenumber.generateJavaExpression»«FOR idx:(0..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)'''
+	
 	dispatch def String generateJavaExpression(IntLiteral exp) '''«exp.num»'''
+	
 	dispatch def String generateJavaExpression(RealLiteral exp) '''«exp.num»'''
 }

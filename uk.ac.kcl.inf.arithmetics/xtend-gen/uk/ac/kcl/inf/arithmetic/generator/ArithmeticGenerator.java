@@ -12,6 +12,7 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -23,6 +24,7 @@ import uk.ac.kcl.inf.arithmetic.arithmetic.Expression;
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.MultiplicationStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.NumberExpression;
+import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.RealLiteral;
 import uk.ac.kcl.inf.arithmetic.arithmetic.Statement;
 import uk.ac.kcl.inf.arithmetic.arithmetic.SubtractionStatement;
@@ -145,7 +147,6 @@ public class ArithmeticGenerator extends AbstractGenerator {
     String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getAddend2());
     _builder.append(_generateJavaExpression_1);
     _builder.append(");");
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -158,7 +159,6 @@ public class ArithmeticGenerator extends AbstractGenerator {
     String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getSubtrahend());
     _builder.append(_generateJavaExpression_1);
     _builder.append(");");
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -171,7 +171,6 @@ public class ArithmeticGenerator extends AbstractGenerator {
     String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getMultiplier2());
     _builder.append(_generateJavaExpression_1);
     _builder.append(");");
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -184,7 +183,25 @@ public class ArithmeticGenerator extends AbstractGenerator {
     String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getDivisor());
     _builder.append(_generateJavaExpression_1);
     _builder.append(");");
-    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final PowerStatement stmt, final ArithmeticGenerator.Environment env) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(");
+    String _generateJavaExpression = this.generateJavaExpression(stmt.getBasenumber());
+    _builder.append(_generateJavaExpression);
+    {
+      int _times = stmt.getTimes();
+      int _minus = (_times - 1);
+      IntegerRange _upTo = new IntegerRange(1, _minus);
+      for(final Integer idx : _upTo) {
+        _builder.append("*");
+        String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getBasenumber());
+        _builder.append(_generateJavaExpression_1);
+      }
+    }
+    _builder.append(");");
     return _builder.toString();
   }
   
@@ -246,6 +263,25 @@ public class ArithmeticGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
+  protected String _generateJavaExpression(final PowerStatement exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    String _generateJavaExpression = this.generateJavaExpression(exp.getBasenumber());
+    _builder.append(_generateJavaExpression);
+    {
+      int _times = exp.getTimes();
+      int _minus = (_times - 1);
+      IntegerRange _upTo = new IntegerRange(0, _minus);
+      for(final Integer idx : _upTo) {
+        _builder.append("*");
+        String _generateJavaExpression_1 = this.generateJavaExpression(exp.getBasenumber());
+        _builder.append(_generateJavaExpression_1);
+      }
+    }
+    _builder.append(")");
+    return _builder.toString();
+  }
+  
   protected String _generateJavaExpression(final IntLiteral exp) {
     StringConcatenation _builder = new StringConcatenation();
     int _num = exp.getNum();
@@ -269,6 +305,8 @@ public class ArithmeticGenerator extends AbstractGenerator {
       return _generateJavaStatement((MultiplicationStatement)stmt, env);
     } else if (stmt instanceof NumberExpression) {
       return _generateJavaStatement((NumberExpression)stmt, env);
+    } else if (stmt instanceof PowerStatement) {
+      return _generateJavaStatement((PowerStatement)stmt, env);
     } else if (stmt instanceof SubtractionStatement) {
       return _generateJavaStatement((SubtractionStatement)stmt, env);
     } else if (stmt instanceof Statement) {
@@ -292,6 +330,8 @@ public class ArithmeticGenerator extends AbstractGenerator {
       return _generateJavaExpression((MultiplicationStatement)exp);
     } else if (exp instanceof NumberExpression) {
       return _generateJavaExpression((NumberExpression)exp);
+    } else if (exp instanceof PowerStatement) {
+      return _generateJavaExpression((PowerStatement)exp);
     } else if (exp instanceof SubtractionStatement) {
       return _generateJavaExpression((SubtractionStatement)exp);
     } else {

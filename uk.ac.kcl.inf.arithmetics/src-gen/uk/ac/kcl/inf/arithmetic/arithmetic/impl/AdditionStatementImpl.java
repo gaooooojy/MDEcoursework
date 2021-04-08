@@ -24,7 +24,6 @@ import uk.ac.kcl.inf.arithmetic.arithmetic.Expression;
  * </p>
  * <ul>
  *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.AdditionStatementImpl#getAddend1 <em>Addend1</em>}</li>
- *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.AdditionStatementImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link uk.ac.kcl.inf.arithmetic.arithmetic.impl.AdditionStatementImpl#getAddend2 <em>Addend2</em>}</li>
  * </ul>
  *
@@ -41,26 +40,6 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
    * @ordered
    */
   protected Expression addend1;
-
-  /**
-   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperator()
-   * @generated
-   * @ordered
-   */
-  protected static final String OPERATOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperator()
-   * @generated
-   * @ordered
-   */
-  protected String operator = OPERATOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAddend2() <em>Addend2</em>}' containment reference.
@@ -149,31 +128,6 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
    * @generated
    */
   @Override
-  public String getOperator()
-  {
-    return operator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOperator(String newOperator)
-  {
-    String oldOperator = operator;
-    operator = newOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ArithmeticPackage.ADDITION_STATEMENT__OPERATOR, oldOperator, operator));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Expression getAddend2()
   {
     return addend2;
@@ -248,8 +202,6 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
     {
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND1:
         return getAddend1();
-      case ArithmeticPackage.ADDITION_STATEMENT__OPERATOR:
-        return getOperator();
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND2:
         return getAddend2();
     }
@@ -268,9 +220,6 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
     {
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND1:
         setAddend1((Expression)newValue);
-        return;
-      case ArithmeticPackage.ADDITION_STATEMENT__OPERATOR:
-        setOperator((String)newValue);
         return;
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND2:
         setAddend2((Expression)newValue);
@@ -292,9 +241,6 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND1:
         setAddend1((Expression)null);
         return;
-      case ArithmeticPackage.ADDITION_STATEMENT__OPERATOR:
-        setOperator(OPERATOR_EDEFAULT);
-        return;
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND2:
         setAddend2((Expression)null);
         return;
@@ -314,29 +260,10 @@ public class AdditionStatementImpl extends StatementImpl implements AdditionStat
     {
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND1:
         return addend1 != null;
-      case ArithmeticPackage.ADDITION_STATEMENT__OPERATOR:
-        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
       case ArithmeticPackage.ADDITION_STATEMENT__ADDEND2:
         return addend2 != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operator: ");
-    result.append(operator);
-    result.append(')');
-    return result.toString();
   }
 
 } //AdditionStatementImpl
