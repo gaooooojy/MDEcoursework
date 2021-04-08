@@ -85,7 +85,8 @@ class ArithmeticGenerator extends AbstractGenerator {
 	System.out.println(«stmt.dividend.generateJavaExpression»/«stmt.divisor.generateJavaExpression»);'''
 	
 	dispatch def String generateJavaStatement(PowerStatement stmt, Environment env)'''
-	System.out.println(«stmt.basenumber.generateJavaExpression»«FOR idx:(1..stmt.times-1)»*«stmt.basenumber.generateJavaExpression»«ENDFOR»);'''
+«««	«IF stmt.times==0 »System.out.println(1)«ENDIF»
+	«IF stmt.times==0 »System.out.println(1)«ELSE»System.out.println(«stmt.basenumber.generateJavaExpression»«FOR idx:(1..stmt.times-1)»*«stmt.basenumber.generateJavaExpression»«ENDFOR»);«ENDIF»'''
 	
 	dispatch def String generateJavaStatement(NumberExpression stmt, Environment env)''''''
 	
@@ -104,7 +105,9 @@ class ArithmeticGenerator extends AbstractGenerator {
 	(«exp.dividend.generateJavaExpression»/«exp.divisor.generateJavaExpression»)'''
 	
 	dispatch def String generateJavaExpression(PowerStatement exp)'''
-	(«exp.basenumber.generateJavaExpression»«FOR idx:(0..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)'''
+«««	(«exp.basenumber.generateJavaExpression»«FOR idx:(0..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)
+«««	Math.pow(«exp.basenumber.generateJavaExpression»,«exp.times»)
+	«IF exp.times==0 »1«ELSE»(«exp.basenumber.generateJavaExpression»«FOR idx:(1..exp.times-1)»*«exp.basenumber.generateJavaExpression»«ENDFOR»)«ENDIF»'''
 	
 	dispatch def String generateJavaExpression(IntLiteral exp) '''«exp.num»'''
 	

@@ -6,6 +6,7 @@ package uk.ac.kcl.inf.arithmetic.validation
 import org.eclipse.xtext.validation.Check
 import uk.ac.kcl.inf.arithmetic.arithmetic.IntLiteral
 import uk.ac.kcl.inf.arithmetic.arithmetic.ArithmeticPackage
+//import uk.ac.kcl.inf.arithmetic.arithmetic.PowerStatement
 
 /** 
  * This class contains custom validation rules. 
@@ -23,9 +24,5 @@ class ArithmeticValidator extends AbstractArithmeticValidator {
 				INVALID_NUMBER
 			)
 		}
-//		if(intl.num == String){
-//			error("All the numbers should be positive numbers", ArithmeticPackage.Literals.INT_LITERAL__NUM)
-//		}
 	}
-	
 }

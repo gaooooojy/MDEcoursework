@@ -188,20 +188,28 @@ public class ArithmeticGenerator extends AbstractGenerator {
   
   protected String _generateJavaStatement(final PowerStatement stmt, final ArithmeticGenerator.Environment env) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(");
-    String _generateJavaExpression = this.generateJavaExpression(stmt.getBasenumber());
-    _builder.append(_generateJavaExpression);
     {
       int _times = stmt.getTimes();
-      int _minus = (_times - 1);
-      IntegerRange _upTo = new IntegerRange(1, _minus);
-      for(final Integer idx : _upTo) {
-        _builder.append("*");
-        String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getBasenumber());
-        _builder.append(_generateJavaExpression_1);
+      boolean _equals = (_times == 0);
+      if (_equals) {
+        _builder.append("System.out.println(1)");
+      } else {
+        _builder.append("System.out.println(");
+        String _generateJavaExpression = this.generateJavaExpression(stmt.getBasenumber());
+        _builder.append(_generateJavaExpression);
+        {
+          int _times_1 = stmt.getTimes();
+          int _minus = (_times_1 - 1);
+          IntegerRange _upTo = new IntegerRange(1, _minus);
+          for(final Integer idx : _upTo) {
+            _builder.append("*");
+            String _generateJavaExpression_1 = this.generateJavaExpression(stmt.getBasenumber());
+            _builder.append(_generateJavaExpression_1);
+          }
+        }
+        _builder.append(");");
       }
     }
-    _builder.append(");");
     return _builder.toString();
   }
   
@@ -265,20 +273,28 @@ public class ArithmeticGenerator extends AbstractGenerator {
   
   protected String _generateJavaExpression(final PowerStatement exp) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("(");
-    String _generateJavaExpression = this.generateJavaExpression(exp.getBasenumber());
-    _builder.append(_generateJavaExpression);
     {
       int _times = exp.getTimes();
-      int _minus = (_times - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for(final Integer idx : _upTo) {
-        _builder.append("*");
-        String _generateJavaExpression_1 = this.generateJavaExpression(exp.getBasenumber());
-        _builder.append(_generateJavaExpression_1);
+      boolean _equals = (_times == 0);
+      if (_equals) {
+        _builder.append("1");
+      } else {
+        _builder.append("(");
+        String _generateJavaExpression = this.generateJavaExpression(exp.getBasenumber());
+        _builder.append(_generateJavaExpression);
+        {
+          int _times_1 = exp.getTimes();
+          int _minus = (_times_1 - 1);
+          IntegerRange _upTo = new IntegerRange(1, _minus);
+          for(final Integer idx : _upTo) {
+            _builder.append("*");
+            String _generateJavaExpression_1 = this.generateJavaExpression(exp.getBasenumber());
+            _builder.append(_generateJavaExpression_1);
+          }
+        }
+        _builder.append(")");
       }
     }
-    _builder.append(")");
     return _builder.toString();
   }
   
