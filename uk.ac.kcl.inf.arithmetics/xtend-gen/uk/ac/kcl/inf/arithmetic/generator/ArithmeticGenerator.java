@@ -105,6 +105,12 @@ public class ArithmeticGenerator extends AbstractGenerator {
     _builder.append(_size_3, "    ");
     _builder.append(" divide statements");
     _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("- ");
+    int _size_4 = IteratorExtensions.size(Iterators.<PowerStatement>filter(m.eAllContents(), PowerStatement.class));
+    _builder.append(_size_4, "    ");
+    _builder.append(" power statements");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -115,7 +121,7 @@ public class ArithmeticGenerator extends AbstractGenerator {
     _builder.append("{");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t    ");
-    _builder.append("public static void main (String[] args){");
+    _builder.append("public static void main(String[] args){");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     final Function1<Statement, String> _function = (Statement it) -> {

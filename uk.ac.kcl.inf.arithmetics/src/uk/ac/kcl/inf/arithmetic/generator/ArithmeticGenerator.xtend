@@ -52,11 +52,12 @@ class ArithmeticGenerator extends AbstractGenerator {
 		    - «m.eAllContents.filter(SubtractionStatement).size» subtract statements
 		    - «m.eAllContents.filter(MultiplicationStatement).size» multiple statements
 		    - «m.eAllContents.filter(DivisionStatement).size» divide statements
+		    - «m.eAllContents.filter(PowerStatement).size» power statements
 	'''
 	
 	def doGenerateClass(ArithmeticsProgram program, String className)'''
 		public class «className»{
-				    public static void main (String[] args){
+				    public static void main(String[] args){
 						«program.states.map[generateJavaStatement(new Environment)].join('\n')»
 				    }
 		}
