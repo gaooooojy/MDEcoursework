@@ -1,7 +1,7 @@
 Program contains:
     
-    - 3 add statements
+    - 4 add statements
     - 3 subtract statements
     - 2 multiple statements
     - 2 divide statements
-    - 4 power statements
+    - 6 power statements
